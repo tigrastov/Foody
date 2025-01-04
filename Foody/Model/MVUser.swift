@@ -1,6 +1,9 @@
 
 import Foundation
+import FirebaseCore
+import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 struct MVUser: Identifiable{
     var id: String

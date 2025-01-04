@@ -2,7 +2,7 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseAuth
-
+let screen = UIScreen.main.bounds
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
@@ -15,6 +15,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 @main
+
 struct FoodyApp: App {
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -22,9 +23,30 @@ struct FoodyApp: App {
 
   var body: some Scene {
     WindowGroup {
+        
+    
       NavigationView {
-        ContentView()
+       
+          if let user = AuthService.shared.currentUser{
+              
+              if user.uid == "7pCgn3tE3JWpk6ceCo1sao0YYXJ3"{
+                  
+                  AdminOrdersView()
+                  
+              }else{
+                  let viewModel = MainTabBarViewModel(user: user)
+                  TabBar(viewModel: viewModel)
+              }
+              
+          }else{
+              AuthView()
+          }
+          
+          
+          
       }
     }
+      
+    
   }
 }
