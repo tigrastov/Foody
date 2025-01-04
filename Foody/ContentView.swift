@@ -1,21 +1,20 @@
-//
-//  ContentView.swift
-//  Foody
-//
-//  Created by Mac mini on 03.01.2025.
-//
+
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image("Снимок экрана 2025-01-03 в 20.31.54")
+                //.imageScale(.large)
+                //.foregroundStyle(.tint)
+           
         }
         .padding()
+        .overlay {
+            Text("Foodikal")
+                .font(.system(size: 60)).foregroundStyle(.white)
+        }
     }
 }
 
