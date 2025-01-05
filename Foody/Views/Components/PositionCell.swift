@@ -21,6 +21,7 @@ struct PositionCell: View {
             
         }
         .padding(.horizontal)
+        .background(.white).cornerRadius(15)
     }
 }
 

@@ -23,23 +23,20 @@ struct CartView: View {
                         }
                         .offset(x: 20)
                        
-                        
-                        
                         Text("\(viewModel.cost) din").foregroundStyle(.foodyRed).fontWeight(.bold).padding()
                 }
                    
-                    
                     List(viewModel.positions){ position in
                        
                             PositionCell(position: position)
-                                .swipeActions {
+                                .swipeActions(edge: .trailing,allowsFullSwipe: true) {
                                     Button {
                                         viewModel.positions.removeAll { pos in
                                             pos.id == position.id
                                         }
                                     } label: {
-                                        Text("Delete")
-                                    }
+                                        Image(systemName: "trash")
+                                    }.tint(Color("redCustom"))
                                 
                                 }
                        
@@ -49,7 +46,7 @@ struct CartView: View {
                     .frame(height: screen.height / 2)
                 
             
-                HStack(spacing: 70){
+                HStack(spacing: 150){
                     Button {
                         viewModel.positions.removeAll()
                         print("Очистить корзину")

@@ -38,7 +38,8 @@ struct AuthView: View {
                     .shadow(radius: 60)
                 
                 TextField("email", text: $email)
-                   .focused($focus, equals: .first)
+                    .foregroundStyle(.darkRed)
+                    .focused($focus, equals: .first)
                     .padding()
                     .background(Color.white)
                     .clipShape(.rect(cornerRadius: 25))
@@ -46,6 +47,7 @@ struct AuthView: View {
                     .padding(.horizontal,12)
                 
                 SecureField("password", text: $password)
+                    .foregroundStyle(.darkRed)
                     .focused($focus, equals: .second)
                     .padding()
                     .background(Color.white)
@@ -55,6 +57,7 @@ struct AuthView: View {
                 
                 if !isAuth {
                     SecureField("confirm password", text: $confirmPassword)
+                        .foregroundStyle(.darkRed)
                         .focused($focus, equals: .third)
                         .padding()
                         .background(Color.white)
