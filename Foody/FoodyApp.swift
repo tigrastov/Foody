@@ -17,6 +17,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 
 struct FoodyApp: App {
+    @State private var isLoading: Bool = true
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
@@ -24,27 +25,36 @@ struct FoodyApp: App {
   var body: some Scene {
     WindowGroup {
         
-    
-      NavigationView {
-       
-          if let user = AuthService.shared.currentUser{
-              
-              if user.uid == "7pCgn3tE3JWpk6ceCo1sao0YYXJ3"{
-                  
-                  AdminOrdersView()
-                  
-              }else{
-                  let viewModel = MainTabBarViewModel(user: user)
-                  TabBar(viewModel: viewModel)
-              }
-              
-          }else{
-              AuthView()
-          }
-          
-          
-          
-      }
+    if isLoading {
+        
+        LaunchView(isLoading: $isLoading)
+        
+    }else{
+        NavigationView {
+         
+            if let user = AuthService.shared.currentUser{
+                
+                if user.uid == "7pCgn3tE3JWpk6ceCo1sao0YYXJ3"{
+                    
+                    AdminOrdersView()
+                    
+                }else{
+                    let viewModel = MainTabBarViewModel(user: user)
+                    TabBar(viewModel: viewModel)
+                }
+                
+            }else{
+                AuthView()
+            }
+        }
+        
+    }
+      
+        
+        
+        
+        
+        
     }
       
     
