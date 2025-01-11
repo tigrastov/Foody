@@ -29,7 +29,7 @@ struct CatalogView: View {
                                         ProductCell(product: item)
                                             .foregroundStyle(Color.foodyRed)
                                     }
-                                        
+                                
                                     }
                                 }.padding()
                             }
@@ -50,7 +50,7 @@ struct CatalogView: View {
             .onAppear {
             viewModel.getProducts()
             }
-        
+           
     }
 }
 struct CatalogView_Previews: PreviewProvider {

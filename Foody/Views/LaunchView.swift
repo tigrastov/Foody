@@ -19,7 +19,7 @@ struct LaunchView: View {
                     }
 
                     // Переход к основному экрану через 3 секунды
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.95) {
                         withAnimation {
                             isLoading = false
                         }

@@ -51,15 +51,11 @@ struct Order{
         guard let date = data["date"] as? Timestamp else {return nil}
         guard let status = data["status"] as? String else {return nil}
         
-        
-        
         self.id = id
         self.userID = userID
         self.status = status
         self.date = date.dateValue()
     }
-    
-    
 }
 
 

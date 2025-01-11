@@ -20,8 +20,6 @@ class DatabaseService{
         return db.collection("products")
     }
     
-    
-    
     private init(){}
     
     func getPositions(by orderID: String, completion: @escaping(Result<[Position], Error>) ->()){
@@ -43,7 +41,6 @@ class DatabaseService{
             }
         }
     }
-    
     
     //Самая сложная функция
     func getOrders(by userID: String?, completion: @escaping(Result<[Order], Error>) ->()){
@@ -183,9 +180,6 @@ class DatabaseService{
             }
             completion(.success(products))
         }
-        
     }
-    
-    
 }
 

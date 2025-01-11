@@ -3,7 +3,7 @@ import SwiftUI
 
 struct ProductDetailView: View {
     
-    @State var viewModel: ProductDetailViewModel
+    @ObservedObject var viewModel: ProductDetailViewModel
     
     // @State private var size = "Маленький"
     
@@ -21,9 +21,7 @@ struct ProductDetailView: View {
                     Image(uiImage: self.viewModel.image)
                         .resizable()
                         .frame(maxWidth: screen.width, maxHeight: 260)
-                        .onAppear{
-                            self.viewModel.getImage()
-                        }
+                    
                 }
                 
                 
@@ -95,7 +93,6 @@ struct ProductDetailView: View {
         }
         .onAppear {
             self.viewModel.getImage()
-            print("getImage")
         }
         
         .frame(width: screen.width, height: screen.height).ignoresSafeArea()
@@ -105,6 +102,7 @@ struct ProductDetailView: View {
     
 }
 
+/*
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ProductDetailView(viewModel: ProductDetailViewModel(product: Product(id: "0", title: "pelmeni", imageUrl: "nil", price: 100, descript: "Самые лучшие среди пельменей")))
@@ -112,3 +110,4 @@ struct ProductDetailView_Previews: PreviewProvider {
     }
 }
 
+*/
